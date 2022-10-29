@@ -3,12 +3,18 @@ package kurpatow.itmo.java.course_project_num_1.register;
 import java.time.LocalTime;
 
 public enum PassType {
-    ONE_PASS (LocalTime.of(8 , 0), LocalTime.of(22,0), "Разовый абонемент"),
-    DAY_PASS (LocalTime.of(8,0), LocalTime.of(16,0), "Дневной абонемент"),
-    FULL_PASS (LocalTime.of(8,0), LocalTime.of(22,0), "Полный абонемент");
+    ONE_PASS (LocalTime.of(8 , 0),
+            LocalTime.of(22,0),
+            "Разовый абонемент"),
+    DAY_PASS (LocalTime.of(8,0),
+            LocalTime.of(16,0),
+            "Дневной абонемент"),
+    FULL_PASS (LocalTime.of(8,0),
+            LocalTime.of(22,0),
+            "Полный абонемент");
 
     private final LocalTime startWorkTime, endWorkTime;
-    private String passName;
+    private final String passName;
 
     PassType(LocalTime startWorkTime, LocalTime endWorkTime, String passName) {
         this.startWorkTime = startWorkTime;
@@ -22,7 +28,5 @@ public enum PassType {
         return endWorkTime;
     }
 
-    public String getPassName() {
-        return passName;
-    }
+    public String getPassName() {return passName;}
 }
