@@ -21,12 +21,9 @@ public enum PassType {
         this.endWorkTime = endWorkTime;
         this.passName = passName;
     }
-    public LocalTime getStartWorkTime() {
-        return startWorkTime;
-    }
+    public LocalTime getStartWorkTime() {return startWorkTime;}
     public LocalTime getEndWorkTime() {
         return endWorkTime;
     }
-
     public String getPassName() {return passName;}
 }
