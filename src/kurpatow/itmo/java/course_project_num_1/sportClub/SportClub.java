@@ -17,7 +17,7 @@ public class SportClub {
     }
     private void setWorkingDate(LocalDate workingDate) {
         if (workingDate == null) throw new IllegalArgumentException(
-                "Ошибка! Необходимо указать корректную даты начала работы!");
+                "Ошибка! Необходимо указать корректную дату начала работы!");
     }
     private void clubActivation() {
         workingDate = null;
