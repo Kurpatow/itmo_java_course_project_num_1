@@ -57,7 +57,7 @@ public class Members {
         if (dayDuration < 1) throw new IllegalArgumentException("Ошибка! Минимальный срок действия абонемента - один день");
         if (this.passType.equals(PassType.ONE_PASS) && dayDuration != 1) {
             System.out.println(
-                    "Минимальный срок Разового абонемента составляет один день. Количество дней %d исправлено на 1\n");
+                    "ВНИМАНИЕ Минимальный срок Разового абонемента составляет один день. Количество выбранных дней исправлено на один день!");
             this.endWorkTime = this.startWorkTime.plusDays(1);
         } else {
             this.endWorkTime = this.startWorkTime.plusDays(dayDuration);

@@ -3,7 +3,7 @@ package kurpatow.itmo.java.course_project_num_1.sportClub;
 import kurpatow.itmo.java.course_project_num_1.register.SportZones;
 import java.time.LocalTime;
 import java.time.LocalDate;
-import java.util.Locale;
+
 
 public class SportClub {
 
@@ -31,7 +31,7 @@ public class SportClub {
         setWorkingDate(workingDate);
     }
     public void endWorking() {
-        System.out.println("Конец рабочего дня! " + "Дата: " + workingDate);
+        System.out.println("Конец рабочего дня! " + "Дата: " + workingDate); // что-то не так
         clubActivation();
     }
     private boolean isSportClubWorking() {
@@ -51,16 +51,16 @@ public class SportClub {
     private boolean  isTrainingZoneFull(Members[] trainingSportZone) {
         for (Members members : trainingSportZone) {
             if (members == null)
-            return  false;
+            return true;
         }
-        return true;
+        return false;
     }
     private boolean isMemberInZone(Members members, Members[] sportZoneMembers) {
         for (Members sportZoneMember : sportZoneMembers) {
             if (sportZoneMember == null) break;
-            if (sportZoneMember.equals(members)) return true;
+            if (sportZoneMember.equals(members)) return false;
         }
-        return false;
+        return true;
     }
     private void addTrainingZone(
             SportZones sportZones, Members members, LocalDate trainingDate, LocalTime trainingTime) {
@@ -101,28 +101,29 @@ public class SportClub {
             System.out.println("Абонемент не предусматривает посещение зала в данное время.");
             return;
         }
+        assert sportZones != null;
         if (!isZoneAccessAllowed(sportZones, members)) {
             System.out.println("Тип вашего абонемента: " + members.getPassType().getPassName() +
                     "В данном типе абонемента не предусмотренно посещение зоны - " + sportZones.getSportClubZoneName());
             return;
         }
-        if (!isMemberInZone(members, swimmingPollMembers) &&
-                !isMemberInZone(members, gymMembers) &&
-                !isMemberInZone(members, gymMembers)) {
+        if (isMemberInZone(members, swimmingPollMembers) &&
+                isMemberInZone(members, gymMembers) &&
+                isMemberInZone(members, gymMembers)) {
             System.out.println("Ошибка! Нельзя посетить одновременно две зоны тренировок.");
             return;
         }
-        if (sportZones.equals(SportZones.SWIMMING_POOL) && !isTrainingZoneFull(swimmingPollMembers)) {
+        if (sportZones.equals(SportZones.SWIMMING_POOL) && isTrainingZoneFull(swimmingPollMembers)) {
 
             addTrainingZone(SportZones.SWIMMING_POOL, members, workingDate, trainingTime);
             System.out.println("Отправляйтесь на тренировку в бассейн.");
 
-        }else if (sportZones.equals(SportZones.GROUP_SPORTS) && !isTrainingZoneFull(groupSportsMembers)) {
+        }else if (sportZones.equals(SportZones.GROUP_SPORTS) && isTrainingZoneFull(groupSportsMembers)) {
 
             addTrainingZone(SportZones.GROUP_SPORTS, members, workingDate, trainingTime);
             System.out.println("Отправляйтесь на групповую тренировку.");
 
-            }else if (sportZones.equals(SportZones.GYM) && !isTrainingZoneFull(gymMembers)) {
+            }else if (sportZones.equals(SportZones.GYM) && isTrainingZoneFull(gymMembers)) {
 
             addTrainingZone(SportZones.GYM, members, workingDate, trainingTime);
             System.out.println("Отправляйтесь на тренировку в тренажерный зал.");
@@ -156,8 +157,8 @@ public class SportClub {
             System.out.println("Посетителей нет");
     }
     public void sportClubMembersInfo() {
-        sportClubMembersInfo(SportZones.SWIMMING_POOL);
-        sportClubMembersInfo(SportZones.GROUP_SPORTS);
-        sportClubMembersInfo(SportZones.GYM);
+        trainingSportZoneInfo(SportZones.SWIMMING_POOL);
+        trainingSportZoneInfo(SportZones.GROUP_SPORTS);
+        trainingSportZoneInfo(SportZones.GYM);
     }
 }
