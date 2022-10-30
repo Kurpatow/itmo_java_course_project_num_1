@@ -41,6 +41,10 @@ public class SportClub {
         return trainingTime.isAfter(members.getPassType().getStartWorkTime()) &&
                 trainingTime.isBefore(members.getPassType().getEndWorkTime());
     }
+    private boolean isMembersActive(Members members) {
+        return members.getEndWorkTime().isAfter(workingDate);
+    }
+
     private boolean isZoneAccessAllowed(SportZones sportZones, Members members) {
         return sportZones.isAccess(members);
     }
@@ -75,7 +79,27 @@ public class SportClub {
                 System.out.println("Дата и время начала тренировки: " + trainingDate + "," + trainingTime);
                 break;
             }
+        }
+    }
+    public void doTraining(Members members, String trainingZone, LocalTime trainingTime) {
+        if (members == null) throw new IllegalArgumentException("Ошибка! Абонемент недействителен.");
+        if (trainingZone == null) throw new IllegalArgumentException("Ошибка! Выбрана недоступная зона тренировки");
+        if (trainingTime == null) throw new IllegalArgumentException(
+                "Ошибка! Выбранное вами время тренировки не предусмотрено предоставленным абонементом");
 
+        if (!isSportClubWorking()) {
+            System.out.println("Спортивный клуб закрыт. Приходите в рабочее время нашего клуба:)");
+            return;
+        }
+        SportZones sportZones = SportZones.getSportZonesByZoneName(trainingZone);
+        if (!isMembersActive(members)) {
+            System.out.println(
+                    "Срок действия абонемента закончился: " + members.getEndWorkTime() + ". Оформите продление абонемента.");
+            return;
+        }
+        if (isTrainingTimeCorrect(members, trainingTime)) {
+            System.out.println("Абонемент не предусматривает посещение зала в данное время.");
+            return;
         }
     }
 }
