@@ -21,7 +21,6 @@ public class Members {
         setEndWorkTime(daysDuration);
         System.out.println("Абонемент создан!");
     }
-
     public void setFirstName(String firstName) {
         if (firstName.length() < 3)
             throw new IllegalArgumentException(
@@ -64,10 +63,10 @@ public class Members {
             this.endWorkTime = this.startWorkTime.plusDays(dayDuration);
         }
     }
+
     public String getFirstName() {return firstName;}
     public String getSecondName() {return secondName;}
     public int getDateOfBirth() {return dateOfBirth;}
     public PassType getPassType() {return passType;}
     public LocalDate getEndWorkTime() {return endWorkTime;}
-
 }
