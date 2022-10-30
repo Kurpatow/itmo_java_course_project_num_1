@@ -34,7 +34,7 @@ public enum SportZones {
         return null;
     }
     // Проверяем, есть доступ в зону по абонементу или нет
-    public boolean access (Members members) {
+    public boolean isAccess (Members members) {
         for (PassType passType : validMember) {
             if (passType.equals(members.getPassType())) {
                 return true;
