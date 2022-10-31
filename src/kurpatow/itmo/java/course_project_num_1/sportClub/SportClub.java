@@ -33,7 +33,7 @@ public class SportClub {
         setWorkingDate(workingDate);
     }
     public void endWorking() {
-        System.out.println("Конец рабочего дня! " + "Дата: " + workingDate); // что-то не так с проверкой времени посещения
+        System.out.println("Конец рабочего дня! " + "Дата: " + workingDate);
         clubActivation();
     }
     private boolean isSportClubWorking() {
@@ -74,11 +74,11 @@ public class SportClub {
         for (int i = 0; i < trainingSportZone.length; i++) {
             if (trainingSportZone[i] == null) {
                 trainingSportZone[i] = members;
-                System.out.printf("Клиент: %s %s. Зона тренировки: %s",
+                System.out.printf("Клиент: %s %s. Зона тренировки: %s.",
                         members.getFirstName(),
                         members.getSecondName(),
                         sportZones.getSportClubZoneName().toLowerCase());
-                System.out.println(" Дата и время начала тренировки: " + trainingDate + "," + trainingTime);
+                System.out.println(" Дата и время начала тренировки: " + trainingDate + " " + trainingTime);
                 break;
             }
         }
@@ -106,7 +106,7 @@ public class SportClub {
         assert sportZones != null;
         if (!isZoneAccessAllowed(sportZones, members)) {
             System.out.println("Тип вашего абонемента: " + members.getPassType().getPassName() +
-                    "В данном типе абонемента не предусмотренно посещение зоны - " + sportZones.getSportClubZoneName());
+                    " В данном типе абонемента не предусмотренно посещение зоны - " + sportZones.getSportClubZoneName());
             return;
         }
         if (!isMemberInZone(members, swimmingPollMembers) &&

@@ -9,22 +9,23 @@ import java.time.LocalDate;
 public class Main {
     public static void main(String[] args) {
 
-        Members subscription1 = new Members("Екатерина", "Барсукова", 1997, "Полный абонемент", 17);
+        Members subscription1 = new Members("Екатерина", "Барсукова", 1997, "Полный абонемент", 120);
         Members subscription2 = new Members("Роберт", "Марутов", 1999, "Разовый абонемент", 1);
-        Members subscription3 = new Members("Михаил", "Васильев",1998, "Полный абонемент", 20);
-        Members subscription4 = new Members("Алина","Резвова",1995,"Дневной абонемент",13);
-        Members subscription5 = new Members("Дмитрий","Ковязин",1992,"Разовый абонемент", 3);//Проверка. 1 день в разовом абонементе
+        Members subscription3 = new Members("Михаил", "Васильев",1998, "Полный абонемент", 180);
+        Members subscription4 = new Members("Алина","Резвова",1995,"Дневной абонемент",100);
+        Members subscription5 = new Members("Дмитрий","Ковязин",1992,"Разовый абонемент", 2);//Проверка. 1 день в разовом абонементе
 
         SportClub sportPlus = new SportClub();
 
         sportPlus.doTraining(subscription1,"Бассейн",LocalTime.of(6, 0)); //Закрыто. Проверка
-        sportPlus.startWorking(LocalDate.now().plusDays(2)); //Открытие зала
-        sportPlus.doTraining(subscription1,"Бассейн", LocalTime.of(14,20));
-        sportPlus.doTraining(subscription2, "Бассейн",LocalTime.of(15,20));
-        sportPlus.doTraining(subscription3, "Групповые спортивные занятия", LocalTime.of(16,20));
-        sportPlus.doTraining(subscription4, "Тренажерный зал", LocalTime.of(16,20));
-        sportPlus.doTraining(subscription5, "Групповые спортивные занятия", LocalTime.of(16,30));
-        sportPlus.doTraining(subscription5,"Тренажерный зал", LocalTime.of(16,31)); //Проверка. Нельзя попасть на два занятия сразу.
+        sportPlus.startWorking(LocalDate.now()); //Открытие зала
+        sportPlus.doTraining(subscription1,"Бассейн", LocalTime.of(12,35));
+        sportPlus.doTraining(subscription4, "Тренажерный зал", LocalTime.of(9,25));
+        sportPlus.doTraining(subscription2, "Бассейн",LocalTime.of(15,12));
+        sportPlus.doTraining(subscription3, "Групповые спортивные занятия", LocalTime.of(13,52));
+        sportPlus.doTraining(subscription4, "Тренажерный зал", LocalTime.of(16,44)); // Проверка времени работы абонемента (Дневной)
+        sportPlus.doTraining(subscription5, "Групповые спортивные занятия", LocalTime.of(14,20));
+        sportPlus.doTraining(subscription5,"Тренажерный зал", LocalTime.of(14,21)); //Проверка. Нельзя попасть на два занятия сразу.
 
         sportPlus.sportClubMembersInfo();//Проверка на количество человек в залах
 
