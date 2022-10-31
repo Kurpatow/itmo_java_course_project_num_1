@@ -19,12 +19,12 @@ public class Main {
 
         sportPlus.doTraining(subscription1,"Бассейн",LocalTime.of(6, 0)); //Закрыто. Проверка
         sportPlus.startWorking(LocalDate.now().plusDays(2)); //Открытие зала
-        sportPlus.doTraining(subscription1,"Бассейн", LocalTime.of(9,20));
-        sportPlus.doTraining(subscription2, "Бассейн",LocalTime.of(10,20));
-        sportPlus.doTraining(subscription3, "Групповые спортивные занятия", LocalTime.of(11,20));
-        sportPlus.doTraining(subscription4, "Тренажерный зал", LocalTime.of(12,20));
-        sportPlus.doTraining(subscription5, "Групповые спортивные занятия", LocalTime.of(13,30));
-        sportPlus.doTraining(subscription5,"Тренажерный зал", LocalTime.of(13,31)); //Проверка. Нельзя попасть на два занятия сразу.
+        sportPlus.doTraining(subscription1,"Бассейн", LocalTime.of(14,20));
+        sportPlus.doTraining(subscription2, "Бассейн",LocalTime.of(15,20));
+        sportPlus.doTraining(subscription3, "Групповые спортивные занятия", LocalTime.of(16,20));
+        sportPlus.doTraining(subscription4, "Тренажерный зал", LocalTime.of(16,20));
+        sportPlus.doTraining(subscription5, "Групповые спортивные занятия", LocalTime.of(16,30));
+        sportPlus.doTraining(subscription5,"Тренажерный зал", LocalTime.of(16,31)); //Проверка. Нельзя попасть на два занятия сразу.
 
         sportPlus.sportClubMembersInfo();//Проверка на количество человек в залах
 

@@ -78,7 +78,7 @@ public class SportClub {
                         members.getFirstName(),
                         members.getSecondName(),
                         sportZones.getSportClubZoneName().toLowerCase());
-                System.out.println("Дата и время начала тренировки: " + trainingDate + "," + trainingTime);
+                System.out.println(" Дата и время начала тренировки: " + trainingDate + "," + trainingTime);
                 break;
             }
         }
@@ -99,7 +99,7 @@ public class SportClub {
                     "Срок действия абонемента закончился: " + members.getEndWorkTime() + ". Оформите продление абонемента.");
             return;
         }
-        if (isTrainingTimeCorrect(members, trainingTime)) {
+        if (!isTrainingTimeCorrect(members, trainingTime)) {
             System.out.println("Абонемент не предусматривает посещение зала в данное время.");
             return;
         }
@@ -109,7 +109,7 @@ public class SportClub {
                     "В данном типе абонемента не предусмотренно посещение зоны - " + sportZones.getSportClubZoneName());
             return;
         }
-        if (isMemberInZone(members, swimmingPollMembers) &&
+        if (!isMemberInZone(members, swimmingPollMembers) &&
                 isMemberInZone(members, gymMembers) &&
                 isMemberInZone(members, gymMembers)) {
             System.out.println("Ошибка! Нельзя посетить одновременно две зоны тренировок.");
