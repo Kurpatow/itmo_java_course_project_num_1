@@ -16,9 +16,11 @@ public class SportClub {
     public SportClub() {
         clubActivation();
     }
+
     private void setWorkingDate(LocalDate workingDate) {
         if (workingDate == null) throw new IllegalArgumentException(
                 "Ошибка! Необходимо указать корректную дату начала работы!");
+        this.workingDate = workingDate;
     }
     private void clubActivation() {
         workingDate = null;
@@ -31,7 +33,7 @@ public class SportClub {
         setWorkingDate(workingDate);
     }
     public void endWorking() {
-        System.out.println("Конец рабочего дня! " + "Дата: " + workingDate); // что-то не так
+        System.out.println("Конец рабочего дня! " + "Дата: " + workingDate); // что-то не так с проверкой времени посещения
         clubActivation();
     }
     private boolean isSportClubWorking() {
