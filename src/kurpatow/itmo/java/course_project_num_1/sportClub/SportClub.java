@@ -1,6 +1,7 @@
 package kurpatow.itmo.java.course_project_num_1.sportClub;
 
 import kurpatow.itmo.java.course_project_num_1.register.SportZones;
+
 import java.time.LocalTime;
 import java.time.LocalDate;
 
@@ -94,6 +95,7 @@ public class SportClub {
             return;
         }
         SportZones sportZones = SportZones.getSportZonesByZoneName(trainingSportZone);
+
         if (!isMembersActive(members)) {
             System.out.println(
                     "Срок действия абонемента закончился: " + members.getEndWorkTime() + ". Оформите продление абонемента.");
@@ -136,12 +138,10 @@ public class SportClub {
     }
     private void trainingSportZoneInfo(SportZones sportZones) {
         Members[] trainingSportZone;
-
         if (sportZones.equals(SportZones.SWIMMING_POOL)) trainingSportZone = swimmingPollMembers;
         else if (sportZones.equals(SportZones.GROUP_SPORTS)) trainingSportZone = groupSportsMembers;
         else trainingSportZone = gymMembers;
         System.out.println("Зона тренировки: " + sportZones.getSportClubZoneName());
-
         int memberCount = 0;
         for (Members members: trainingSportZone) {
             if (members != null) {
