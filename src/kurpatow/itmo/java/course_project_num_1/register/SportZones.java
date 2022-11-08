@@ -1,22 +1,17 @@
 package kurpatow.itmo.java.course_project_num_1.register;
 
-import  kurpatow.itmo.java.course_project_num_1.sportClub.Members;
+import kurpatow.itmo.java.course_project_num_1.register.PassType;
+import kurpatow.itmo.java.course_project_num_1.sportClub.Members;
 
 
 public enum SportZones {
-    SWIMMING_POOL (new PassType[] {PassType.ONE_PASS, PassType.FULL_PASS},
-            "Бассейн"),
-    GROUP_SPORTS (new PassType[] {PassType.DAY_PASS, PassType.FULL_PASS},
-            "Групповые спортивные занятия"),
-    GYM (new PassType[] {PassType.ONE_PASS, PassType.DAY_PASS, PassType.FULL_PASS},
-            "Тренажерный зал");
+    SWIMMING_POOL ("Бассейн"),
+    GROUP_SPORTS ("Групповые спортивные занятия"),
+    GYM ("Тренажерный зал");
 
-    private final PassType[] validMember;
     private final String sportClubZoneName;
 
-    SportZones(PassType[] validMember, String sportClubZoneName) {
-        this.validMember = new PassType[validMember.length];
-        System.arraycopy(validMember, 0, this.validMember, 0, validMember.length);
+    SportZones(String sportClubZoneName) {
         this.sportClubZoneName = sportClubZoneName;
     }
     public String getSportClubZoneName() {
@@ -30,13 +25,5 @@ public enum SportZones {
         }
         return null;
     }
-    // Проверяем, есть доступ в зону по абонементу или нет
-    public boolean isAccess (Members members) {
-        for (PassType passType : validMember) {
-            if (passType.equals(members.getPassType())) {
-                return true;
-            }
-        }
-        return false;
-    }
+
 }

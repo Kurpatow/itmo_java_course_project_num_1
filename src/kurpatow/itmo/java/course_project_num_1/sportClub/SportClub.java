@@ -1,6 +1,8 @@
 package kurpatow.itmo.java.course_project_num_1.sportClub;
 
+import kurpatow.itmo.java.course_project_num_1.register.PassType;
 import kurpatow.itmo.java.course_project_num_1.register.SportZones;
+
 
 import java.time.LocalTime;
 import java.time.LocalDate;
@@ -48,8 +50,8 @@ public class SportClub {
         return members.getEndWorkTime().isAfter(workingDate);
     }
 
-    private boolean isZoneAccessAllowed(SportZones sportZones, Members members) {
-        return sportZones.isAccess(members);
+    private boolean isZoneAccessAllowed(PassType passType , Members members) {
+        return passType.isAccess(members);
     }
     private boolean  isTrainingZoneFull(Members[] trainingSportZone) {
         for (Members members : trainingSportZone) {
@@ -105,7 +107,7 @@ public class SportClub {
             System.out.println("Абонемент не предусматривает посещение зала в данное время.");
             return;
         }
-        assert sportZones != null;
+        assert members.getPassType() != null;
         if (!isZoneAccessAllowed(sportZones, members)) {
             System.out.println("Тип вашего абонемента: " + members.getPassType().getPassName() +
                     " В данном типе абонемента не предусмотренно посещение зоны - " + sportZones.getSportClubZoneName());
@@ -163,4 +165,5 @@ public class SportClub {
         trainingSportZoneInfo(SportZones.GROUP_SPORTS);
         trainingSportZoneInfo(SportZones.GYM);
     }
+
 }
