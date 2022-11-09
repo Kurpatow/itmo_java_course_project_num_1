@@ -1,6 +1,6 @@
 package kurpatow.itmo.java.course_project_num_1;
 
-import kurpatow.itmo.java.course_project_num_1.sportClub.Members;
+import kurpatow.itmo.java.course_project_num_1.sportClub.Member;
 import kurpatow.itmo.java.course_project_num_1.sportClub.SportClub;
 
 import java.time.LocalTime;
@@ -9,11 +9,11 @@ import java.time.LocalDate;
 public class Main {
     public static void main(String[] args) {
 
-        Members subscription1 = new Members("Екатерина", "Барсукова", 1997, "Полный абонемент", 120);
-        Members subscription2 = new Members("Роберт", "Марутов", 1999, "Разовый абонемент", 1);
-        Members subscription3 = new Members("Михаил", "Васильев",1998, "Полный абонемент", 180);
-        Members subscription4 = new Members("Алина","Резвова",1995,"Дневной абонемент",100);
-        Members subscription5 = new Members("Дмитрий","Ковязин",1992,"Разовый абонемент", 2);//Проверка. 1 день в разовом абонементе
+        Member subscription1 = new Member("Екатерина", "Барсукова", 1997, "Полный абонемент", 120);
+        Member subscription2 = new Member("Роберт", "Марутов", 1999, "Разовый абонемент", 1);
+        Member subscription3 = new Member("Михаил", "Васильев",1998, "Полный абонемент", 180);
+        Member subscription4 = new Member("Алина","Резвова",1995,"Дневной абонемент",100);
+        Member subscription5 = new Member("Дмитрий","Ковязин",1992,"Разовый абонемент", 2);//Проверка. 1 день в разовом абонементе
 
         SportClub sportPlus = new SportClub();
 
