@@ -5,8 +5,7 @@ import kurpatow.itmo.java.course_project_num_1.register.PassType;
 
 import java.time.LocalDate;
 
-public class Member {
-
+public class Member extends Client{
 
     private PassType passType;
     private final LocalDate startWorkTime;
@@ -45,7 +44,4 @@ public class Member {
     }
     public PassType getPassType() {return passType;}
     public LocalDate getEndWorkTime() {return endWorkTime;}
-
-
-
 }

@@ -50,9 +50,6 @@ public class SportClub {
         return members.getEndWorkTime().isAfter(workingDate);
     }
 
-    private boolean isZoneAccessAllowed(PassType passType , Member members) {
-        return passType.isAccess(members);
-    }
     private boolean  isTrainingZoneFull(Member[] trainingSportZone) {
         for (Member members : trainingSportZone) {
             if (members == null)
@@ -108,7 +105,7 @@ public class SportClub {
             return;
         }
         assert members.getPassType() != null;
-        if (!isZoneAccessAllowed(sportZones, members)) {
+        if (!members.getPassType().isAccess(sportZones)) {
             System.out.println("Тип вашего абонемента: " + members.getPassType().getPassName() +
                     " В данном типе абонемента не предусмотренно посещение зоны - " + sportZones.getSportClubZoneName());
             return;
