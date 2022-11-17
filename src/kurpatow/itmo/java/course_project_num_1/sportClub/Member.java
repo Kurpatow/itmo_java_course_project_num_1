@@ -5,16 +5,17 @@ import kurpatow.itmo.java.course_project_num_1.register.PassType;
 
 import java.time.LocalDate;
 
-public class Member extends Client{
+public class Member{
 
+    private Client client;
     private PassType passType;
     private final LocalDate startWorkTime;
     private LocalDate endWorkTime;
 
     public Member(String firstName, String secondName, int dateOfBirth, String passType, int daysDuration) {
-        setFirstName(firstName);
-        setSecondName(secondName);
-        setDateOfBirth(dateOfBirth);
+        client.setFirstName(firstName);
+        client.setSecondName(secondName);
+        client.setDateOfBirth(dateOfBirth);
         setPassType(passType);
         this.startWorkTime = LocalDate.now();
         setEndWorkTime(daysDuration);
@@ -44,4 +45,9 @@ public class Member extends Client{
     }
     public PassType getPassType() {return passType;}
     public LocalDate getEndWorkTime() {return endWorkTime;}
+
+    public int getDateOfBirth () {return client.getDateOfBirth();}
+    public String getSecondName () {return client.getSecondName();}
+    public String getFirstName () {return client.getFirstName();}
+
 }

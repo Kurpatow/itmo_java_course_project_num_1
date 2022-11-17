@@ -28,13 +28,7 @@ public class Client {
         this.dateOfBirth = dateOfBirth;
     }
 
-    public int getDateOfBirth () {
-        return dateOfBirth;
-    }
-    public String getSecondName () {
-        return secondName;
-    }
-    public String getFirstName () {
-        return firstName;
-    }
+    public int getDateOfBirth () {return dateOfBirth;}
+    public String getSecondName () {return secondName;}
+    public String getFirstName () {return firstName;}
     }

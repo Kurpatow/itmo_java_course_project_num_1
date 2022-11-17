@@ -1,5 +1,6 @@
 package kurpatow.itmo.java.course_project_num_1.sportClub;
 
+import kurpatow.itmo.java.course_project_num_1.register.Client;
 import kurpatow.itmo.java.course_project_num_1.register.PassType;
 import kurpatow.itmo.java.course_project_num_1.register.SportZone;
 
@@ -64,20 +65,14 @@ public class SportClub {
         }
         return true;
     }
-    private void addTrainingZone(
-            SportZone sportZones, Member members, LocalDate trainingDate, LocalTime trainingTime) {
-        Member[] trainingSportZone;
-        if (sportZones.equals(SportZone.SWIMMING_POOL)) trainingSportZone = swimmingPollMembers;
-        else if (sportZones.equals(SportZone.GROUP_SPORTS)) trainingSportZone = groupSportsMembers;
-        else trainingSportZone = gymMembers;
+    private void addTrainingZone(Member member, Member[] trainingSportZone, LocalDate trainingDate, LocalTime trainingTime) {
 
         for (int i = 0; i < trainingSportZone.length; i++) {
             if (trainingSportZone[i] == null) {
-                trainingSportZone[i] = members;
+                trainingSportZone[i] = member;
                 System.out.printf("Клиент: %s %s. Зона тренировки: %s.",
-                        members.getFirstName(),
-                        members.getSecondName(),
-                        sportZones.getSportClubZoneName().toLowerCase());
+                        member.getFirstName(),
+                        member.getSecondName());
                 System.out.println(" Дата и время начала тренировки: " + trainingDate + " " + trainingTime);
                 break;
             }
@@ -118,17 +113,18 @@ public class SportClub {
         }
         if (sportZones.equals(SportZone.SWIMMING_POOL) && isTrainingZoneFull(swimmingPollMembers)) {
 
-            addTrainingZone(SportZone.SWIMMING_POOL, members, workingDate, trainingTime);
+            addTrainingZone
+                    ( members, swimmingPollMembers, workingDate, trainingTime);
             System.out.println("Отправляйтесь на тренировку в бассейн.");
 
         }else if (sportZones.equals(SportZone.GROUP_SPORTS) && isTrainingZoneFull(groupSportsMembers)) {
 
-            addTrainingZone(SportZone.GROUP_SPORTS, members, workingDate, trainingTime);
+            addTrainingZone(members, groupSportsMembers, workingDate, trainingTime);
             System.out.println("Отправляйтесь на групповую тренировку.");
 
             }else if (sportZones.equals(SportZone.GYM) && isTrainingZoneFull(gymMembers)) {
 
-            addTrainingZone(SportZone.GYM, members, workingDate, trainingTime);
+            addTrainingZone(members, gymMembers, workingDate, trainingTime);
             System.out.println("Отправляйтесь на тренировку в тренажерный зал.");
 
             }else{
