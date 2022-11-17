@@ -15,10 +15,8 @@ public class Member{
     private final LocalDate startWorkTime;
     private LocalDate endWorkTime;
 
-    public Member(String firstName, String secondName, int dateOfBirth, String passType, int daysDuration) {
+        public Member(String firstName, String secondName, int dateOfBirth, String passType, int daysDuration) {
 
-
-        setPassType(passType);
         this.startWorkTime = LocalDate.now();
         setEndWorkTime(daysDuration);
         System.out.println("Абонемент создан!");
