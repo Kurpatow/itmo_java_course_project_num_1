@@ -1,7 +1,5 @@
 package kurpatow.itmo.java.course_project_num_1.sportClub;
 
-import kurpatow.itmo.java.course_project_num_1.register.Client;
-import kurpatow.itmo.java.course_project_num_1.register.PassType;
 import kurpatow.itmo.java.course_project_num_1.register.SportZone;
 
 
@@ -72,7 +70,7 @@ public class SportClub {
                 trainingSportZone[i] = member;
                 System.out.printf("Клиент: %s %s. Зона тренировки: %s.",
                         member.getFirstName(),
-                        member.getSecondName());
+                        member.getSecondName(),
                 System.out.println(" Дата и время начала тренировки: " + trainingDate + " " + trainingTime);
                 break;
             }

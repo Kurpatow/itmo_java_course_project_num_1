@@ -8,14 +8,16 @@ import java.time.LocalDate;
 public class Member{
 
     private Client client;
+    public Client getClient() {return client;}
+    public void setClient(Client client) {this.client = client;}
+
     private PassType passType;
     private final LocalDate startWorkTime;
     private LocalDate endWorkTime;
 
     public Member(String firstName, String secondName, int dateOfBirth, String passType, int daysDuration) {
-        client.setFirstName(firstName);
-        client.setSecondName(secondName);
-        client.setDateOfBirth(dateOfBirth);
+
+
         setPassType(passType);
         this.startWorkTime = LocalDate.now();
         setEndWorkTime(daysDuration);
@@ -45,9 +47,4 @@ public class Member{
     }
     public PassType getPassType() {return passType;}
     public LocalDate getEndWorkTime() {return endWorkTime;}
-
-    public int getDateOfBirth () {return client.getDateOfBirth();}
-    public String getSecondName () {return client.getSecondName();}
-    public String getFirstName () {return client.getFirstName();}
-
 }

@@ -7,11 +7,12 @@ public class Client {
     private String secondName;
     private int dateOfBirth;
 
-    public void setFirstName (String firstName){
+    public Client setFirstName (String firstName){
         if (firstName.length() < 3)
             throw new IllegalArgumentException(
                     "Ошибка! При регистрации абонемента ИМЯ держателя карты должно состоять минимум из трёх букв");
         this.firstName = firstName;
+        return null;
     }
 
     public void setSecondName (String secondName){
