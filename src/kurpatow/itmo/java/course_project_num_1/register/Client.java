@@ -7,6 +7,15 @@ public class Client {
     private String secondName;
     private int dateOfBirth;
 
+    Client (String firstName, String secondName, int dateOfBirth) {
+        this.firstName = firstName;
+        this.secondName = secondName;
+        this.dateOfBirth = dateOfBirth;
+    }
+    public String getFullInfo() {
+        return firstName + secondName + dateOfBirth;
+    }
+
     public Client setFirstName (String firstName){
         if (firstName.length() < 3)
             throw new IllegalArgumentException(

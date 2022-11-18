@@ -69,8 +69,7 @@ public class SportClub {
             if (trainingSportZone[i] == null) {
                 trainingSportZone[i] = member;
                 System.out.printf("Клиент: %s %s. Зона тренировки: %s.",
-                        member.getFirstName(),
-                        member.getSecondName(),
+                        member.getClient());
                 System.out.println(" Дата и время начала тренировки: " + trainingDate + " " + trainingTime);
                 break;
             }
@@ -141,9 +140,7 @@ public class SportClub {
                 memberCount++;
                 System.out.printf("Клиент %d. %s %s. Год рождения: %d. Абонемент %s, срок действия до %s \n",
                         memberCount,
-                        members.getFirstName(),
-                        members.getSecondName(),
-                        members.getDateOfBirth(),
+                        members.getClient(),
                         members.getPassType().getPassName(),
                         members.getEndWorkTime());
             }

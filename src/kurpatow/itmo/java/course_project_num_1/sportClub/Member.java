@@ -7,19 +7,20 @@ import java.time.LocalDate;
 
 public class Member{
 
-    private Client client;
-    public Client getClient() {return client;}
-    public void setClient(Client client) {this.client = client;}
-
     private PassType passType;
     private final LocalDate startWorkTime;
     private LocalDate endWorkTime;
 
-        public Member(String firstName, String secondName, int dateOfBirth, String passType, int daysDuration) {
+    private Client client;
+    public Client getClient() {return client;}
+    public void setClient(String firstName, String secondName, int dateOfBirth) {
+    }
 
-        this.startWorkTime = LocalDate.now();
-        setEndWorkTime(daysDuration);
-        System.out.println("Абонемент создан!");
+        public Member(String firstName, String secondName, int dateOfBirth, String passType, int daysDuration) {
+            setClient(firstName, secondName, dateOfBirth);
+            this.startWorkTime = LocalDate.now();
+            setEndWorkTime(daysDuration);
+            System.out.println("Абонемент создан!");
     }
 
     public void setPassType(String passType) {
