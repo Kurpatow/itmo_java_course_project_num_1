@@ -1,6 +1,5 @@
 package kurpatow.itmo.java.course_project_num_1.register;
 
-
 public enum SportZone {
     SWIMMING_POOL ("Бассейн"),
     GROUP_SPORTS ("Групповые спортивные занятия"),
@@ -16,11 +15,8 @@ public enum SportZone {
     }
     public static SportZone getSportZonesByZoneName(String sportClubZoneName) {
         for (SportZone zone : SportZone.values()) {
-            if (sportClubZoneName.equalsIgnoreCase(zone.sportClubZoneName)) {
-                return zone;
-            }
+            if (sportClubZoneName.equalsIgnoreCase(zone.sportClubZoneName)) {return zone;}
         }
         return null;
     }
-
 }

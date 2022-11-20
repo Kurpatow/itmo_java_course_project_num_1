@@ -13,14 +13,14 @@ public class Member{
 
     private Client client;
     public Client getClient() {return client;}
-    public void setClient(String firstName, String secondName, int dateOfBirth) {
-    }
+    public void setClient(Client client) {this.client = client;}
 
-        public Member(String firstName, String secondName, int dateOfBirth, String passType, int daysDuration) {
-            setClient(firstName, secondName, dateOfBirth);
-            this.startWorkTime = LocalDate.now();
-            setEndWorkTime(daysDuration);
-            System.out.println("Абонемент создан!");
+    public Member(Client client, String passType, int daysDuration) {
+        this.client = client;
+        setPassType(passType);
+        this.startWorkTime = LocalDate.now();
+        setEndWorkTime(daysDuration);
+        System.out.println("Абонемент создан!");
     }
 
     public void setPassType(String passType) {
@@ -46,4 +46,5 @@ public class Member{
     }
     public PassType getPassType() {return passType;}
     public LocalDate getEndWorkTime() {return endWorkTime;}
+
 }

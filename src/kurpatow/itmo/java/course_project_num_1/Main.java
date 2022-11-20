@@ -1,19 +1,27 @@
 package kurpatow.itmo.java.course_project_num_1;
 
+import kurpatow.itmo.java.course_project_num_1.register.Client;
 import kurpatow.itmo.java.course_project_num_1.sportClub.Member;
 import kurpatow.itmo.java.course_project_num_1.sportClub.SportClub;
-
 import java.time.LocalTime;
 import java.time.LocalDate;
 
 public class Main {
     public static void main(String[] args) {
+        Client client1 = new Client("Екатерина", "Барсукова", 1997);
+        Member subscription1 = new Member(client1, "Полный абонемент", 120);
 
-        Member subscription1 = new Member("Екатерина", "Барсукова", 1997, "Полный абонемент", 120);
-        Member subscription2 = new Member("Роберт", "Марутов", 1999, "Разовый абонемент", 1);
-        Member subscription3 = new Member("Михаил", "Васильев",1998, "Полный абонемент", 180);
-        Member subscription4 = new Member("Алина","Резвова",1995,"Дневной абонемент",100);
-        Member subscription5 = new Member("Дмитрий","Ковязин",1992,"Разовый абонемент", 2);//Проверка. 1 день в разовом абонементе
+        Client client2 = new Client ("Роберт", "Марутов", 1999);
+        Member subscription2 = new Member(client2, "Разовый абонемент", 1);
+
+        Client client3 = new Client("Михаил", "Васильев",1998);
+        Member subscription3 = new Member(client3, "Полный абонемент", 180);
+
+        Client client4 = new Client("Алина","Резвова",1995);
+        Member subscription4 = new Member(client4,"Дневной абонемент",100);
+
+        Client client5 = new Client("Дмитрий","Ковязин",1992);
+        Member subscription5 = new Member(client5,"Разовый абонемент", 2);//Проверка. 1 день в разовом абонементе
 
         SportClub sportPlus = new SportClub();
 
